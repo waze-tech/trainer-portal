@@ -29,13 +29,13 @@ export function Badge({ variant = 'neutral', children, className = '', dot = fal
   return (
     <span
       className={`
-        inline-flex items-center gap-1.5 px-2.5 py-0.5 text-xs font-medium
+        inline-flex items-center gap-1.5 px-2.5 py-0.5 text-xs font-medium rounded-[--radius-sm]
         border
         ${variantClasses[variant]}
         ${className}
       `}
     >
-      {dot && <span className={`w-1.5 h-1.5-full ${dotColors[variant]}`} />}
+      {dot && <span className={`w-1.5 h-1.5 rounded-full ${dotColors[variant]}`} />}
       {children}
     </span>
   );

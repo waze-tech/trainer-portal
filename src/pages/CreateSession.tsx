@@ -82,12 +82,12 @@ export function CreateSession() {
         <Header title="Create Session" />
         <main className="p-8 flex items-center justify-center min-h-[calc(100vh-64px)]">
           <Card className="text-center max-w-md w-full py-12">
-            <div className="w-16 h-16 bg-green-100-full flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <Sparkles size={32} className="text-green-600" />
             </div>
             <h2 className="text-xl font-semibold text-neutral-950 mb-2">Session Created!</h2>
             <p className="text-neutral-500 mb-6">Your QR code is being generated. Redirecting to session details...</p>
-            <div className="w-48 h-48 bg-neutral-100 mx-auto flex items-center justify-center border-2 border-dashed border-neutral-300">
+            <div className="w-48 h-48 bg-neutral-100 rounded-[--radius-md] mx-auto flex items-center justify-center border-2 border-dashed border-neutral-300">
               <div className="grid grid-cols-5 gap-1 p-4">
                 {Array.from({ length: 25 }).map((_, i) => (
                   <div
@@ -189,7 +189,7 @@ export function CreateSession() {
                         <select
                           value={q.type}
                           onChange={e => updateQuestion(q.id, 'type', e.target.value)}
-                          className="px-3 py-1.5 text-sm border border-neutral-300 bg-neutral-0"
+                          className="px-3 py-1.5 text-sm border border-neutral-300 rounded-[--radius-md] bg-neutral-0"
                         >
                           <option value="text">Text</option>
                           <option value="select">Dropdown</option>

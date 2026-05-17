@@ -28,11 +28,11 @@ export function Modal({ open, onClose, title, children, size = 'md' }: ModalProp
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} />
-      <div className={`relative bg-neutral-0 shadow-xl ${sizeClasses[size]} w-full mx-4 max-h-[90vh] overflow-y-auto`}>
+      <div className={`relative bg-neutral-0 shadow-xl rounded-[--radius-lg] ${sizeClasses[size]} w-full mx-4 max-h-[90vh] overflow-y-auto`}>
         {title && (
           <div className="flex items-center justify-between px-6 py-4 border-b border-neutral-300">
             <h3 className="text-lg font-semibold text-neutral-950">{title}</h3>
-            <button onClick={onClose} className="p-1 hover:bg-neutral-100 text-neutral-400 hover:text-neutral-600 transition-colors cursor-pointer">
+            <button onClick={onClose} className="p-1 rounded-[--radius-sm] hover:bg-neutral-100 text-neutral-400 hover:text-neutral-600 transition-colors cursor-pointer">
               <X size={20} />
             </button>
           </div>

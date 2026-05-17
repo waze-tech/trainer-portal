@@ -46,9 +46,7 @@ export function WorkerEnrollment() {
       {/* Mobile header */}
       <div className="bg-neutral-950 px-4 py-4 text-white">
         <div className="flex items-center gap-2 mb-1">
-          <div className="w-7 h-7 bg-brand-600 flex items-center justify-center text-white font-bold text-sm">
-            B
-          </div>
+          <img src="/breadcrumb-logo.jpg" alt="Breadcrumb" width={28} height={28} className="object-contain" />
           <span className="font-semibold">Breadcrumb</span>
         </div>
         <h1 className="text-lg font-semibold mt-2">{session.type} Training</h1>
@@ -66,7 +64,7 @@ export function WorkerEnrollment() {
           <div className="flex items-center gap-2">
             {(['phone', 'otp', 'info'] as const).map((s, i) => (
               <div key={s} className="flex items-center gap-2 flex-1">
-                <div className={`w-6 h-6-full flex items-center justify-center text-xs font-medium ${
+                <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium ${
                   step === s ? 'bg-brand-600 text-white' :
                   (['phone', 'otp', 'info'].indexOf(step) > i) ? 'bg-green-600 text-white' :
                   'bg-neutral-200 text-neutral-400'
@@ -94,13 +92,13 @@ export function WorkerEnrollment() {
                 value={phone}
                 onChange={e => setPhone(e.target.value)}
                 placeholder="+1 (555) 000-0000"
-                className="w-full px-4 py-3 text-base border border-neutral-300 bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600"
+                className="w-full px-4 py-3 text-base border border-neutral-300 rounded-[--radius-md] bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600"
               />
             </div>
             <button
               onClick={() => setStep('otp')}
               disabled={!phone}
-              className="w-full py-3 bg-brand-600 text-white font-medium hover:bg-brand-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3 rounded-[--radius-md] bg-brand-600 text-white font-medium hover:bg-brand-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
             >
               Send Code <ArrowRight size={18} />
             </button>
@@ -125,13 +123,13 @@ export function WorkerEnrollment() {
                   maxLength={1}
                   value={digit}
                   onChange={e => handleOtpChange(i, e.target.value)}
-                  className="w-12 h-14 text-center text-xl font-semibold border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600"
+                  className="w-12 h-14 rounded-[--radius-md] text-center text-xl font-semibold border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600"
                 />
               ))}
             </div>
             <button
               onClick={() => setStep('info')}
-              className="w-full py-3 bg-brand-600 text-white font-medium hover:bg-brand-700 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3 rounded-[--radius-md] bg-brand-600 text-white font-medium hover:bg-brand-700 transition-colors flex items-center justify-center gap-2 cursor-pointer"
             >
               Verify <ArrowRight size={18} />
             </button>
@@ -158,7 +156,7 @@ export function WorkerEnrollment() {
                   value={firstName}
                   onChange={e => setFirstName(e.target.value)}
                   placeholder="First name"
-                  className="w-full px-4 py-3 text-base border border-neutral-300 bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600"
+                  className="w-full px-4 py-3 text-base border border-neutral-300 rounded-[--radius-md] bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600"
                 />
               </div>
               <div>
@@ -168,7 +166,7 @@ export function WorkerEnrollment() {
                   value={lastName}
                   onChange={e => setLastName(e.target.value)}
                   placeholder="Last name"
-                  className="w-full px-4 py-3 text-base border border-neutral-300 bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600"
+                  className="w-full px-4 py-3 text-base border border-neutral-300 rounded-[--radius-md] bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600"
                 />
               </div>
               <div>
@@ -178,7 +176,7 @@ export function WorkerEnrollment() {
                   value={employer}
                   onChange={e => setEmployer(e.target.value)}
                   placeholder="Company name"
-                  className="w-full px-4 py-3 text-base border border-neutral-300 bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600"
+                  className="w-full px-4 py-3 text-base border border-neutral-300 rounded-[--radius-md] bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600"
                 />
               </div>
 
@@ -192,7 +190,7 @@ export function WorkerEnrollment() {
                     <select
                       value={answers[q.id] || ''}
                       onChange={e => setAnswers({ ...answers, [q.id]: e.target.value })}
-                      className="w-full px-4 py-3 text-base border border-neutral-300 bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600 appearance-none"
+                      className="w-full px-4 py-3 text-base border border-neutral-300 rounded-[--radius-md] bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600 appearance-none"
                     >
                       <option value="">Select...</option>
                       {q.options.map(opt => (
@@ -215,7 +213,7 @@ export function WorkerEnrollment() {
                       value={answers[q.id] || ''}
                       onChange={e => setAnswers({ ...answers, [q.id]: e.target.value })}
                       placeholder="Your answer"
-                      className="w-full px-4 py-3 text-base border border-neutral-300 bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600"
+                      className="w-full px-4 py-3 text-base border border-neutral-300 rounded-[--radius-md] bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600"
                     />
                   )}
                 </div>
@@ -246,7 +244,7 @@ export function WorkerEnrollment() {
             <button
               onClick={() => setStep('success')}
               disabled={!isInfoValid}
-              className="w-full py-3 mt-6 bg-brand-600 text-white font-medium hover:bg-brand-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3 mt-6 rounded-[--radius-md] bg-brand-600 text-white font-medium hover:bg-brand-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 cursor-pointer"
             >
               Submit Enrollment <ArrowRight size={18} />
             </button>
@@ -255,8 +253,8 @@ export function WorkerEnrollment() {
 
         {/* Success Step */}
         {step === 'success' && (
-          <div className="bg-white-2xl shadow-sm p-8 mt-4 text-center">
-            <div className="w-16 h-16 bg-green-100-full flex items-center justify-center mx-auto mb-4">
+          <div className="bg-white rounded-[--radius-xl] shadow-sm p-8 mt-4 text-center">
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <CheckCircle2 size={32} className="text-green-600" />
             </div>
             <h2 className="text-xl font-semibold text-neutral-950 mb-2">You're enrolled!</h2>

@@ -105,8 +105,8 @@ export function Compliance() {
         <div className="grid grid-cols-3 gap-4 mb-6">
           <Card>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-green-100 flex items-center justify-center">
-                <div className="w-3 h-3-full bg-green-600" />
+              <div className="w-10 h-10 bg-green-100 rounded-[--radius-md] flex items-center justify-center">
+                <div className="w-3 h-3 rounded-full bg-green-600" />
               </div>
               <div>
                 <p className="text-2xl font-semibold text-neutral-950">{valid}</p>
@@ -116,8 +116,8 @@ export function Compliance() {
           </Card>
           <Card>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-yellow-100 flex items-center justify-center">
-                <div className="w-3 h-3-full bg-yellow-600" />
+              <div className="w-10 h-10 bg-yellow-100 rounded-[--radius-md] flex items-center justify-center">
+                <div className="w-3 h-3 rounded-full bg-yellow-600" />
               </div>
               <div>
                 <p className="text-2xl font-semibold text-neutral-950">{expiringSoon}</p>
@@ -127,8 +127,8 @@ export function Compliance() {
           </Card>
           <Card>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-red-100 flex items-center justify-center">
-                <div className="w-3 h-3-full bg-red-600" />
+              <div className="w-10 h-10 bg-red-100 rounded-[--radius-md] flex items-center justify-center">
+                <div className="w-3 h-3 rounded-full bg-red-600" />
               </div>
               <div>
                 <p className="text-2xl font-semibold text-neutral-950">{expired}</p>
@@ -148,13 +148,13 @@ export function Compliance() {
                 placeholder="Search workers or employers..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="w-full pl-9 pr-4 py-2 text-sm border border-neutral-300 bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600"
+                className="w-full pl-9 pr-4 py-2 text-sm border border-neutral-300 rounded-[--radius-md] bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600"
               />
             </div>
             <select
               value={typeFilter}
               onChange={e => setTypeFilter(e.target.value as TrainingType | 'all')}
-              className="px-3 py-2 text-sm border border-neutral-300 bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20"
+              className="px-3 py-2 text-sm border border-neutral-300 rounded-[--radius-md] bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20"
             >
               <option value="all">All Types</option>
               {TRAINING_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
@@ -162,7 +162,7 @@ export function Compliance() {
             <select
               value={employerFilter}
               onChange={e => setEmployerFilter(e.target.value)}
-              className="px-3 py-2 text-sm border border-neutral-300 bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20"
+              className="px-3 py-2 text-sm border border-neutral-300 rounded-[--radius-md] bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20"
             >
               <option value="all">All Employers</option>
               {employers.map(e => <option key={e} value={e}>{e}</option>)}
@@ -170,7 +170,7 @@ export function Compliance() {
             <select
               value={statusFilter}
               onChange={e => setStatusFilter(e.target.value as CertStatus | 'all')}
-              className="px-3 py-2 text-sm border border-neutral-300 bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20"
+              className="px-3 py-2 text-sm border border-neutral-300 rounded-[--radius-md] bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20"
             >
               <option value="all">All Statuses</option>
               <option value="Valid">Valid</option>

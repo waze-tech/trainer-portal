@@ -57,8 +57,8 @@ function ConfidenceBar({ score }: { score: number | null }) {
 
   return (
     <div className="flex items-center gap-2">
-      <div className="w-16 h-1.5 bg-neutral-200-full overflow-hidden">
-        <div className={`h-full-full ${color}`} style={{ width: `${pct}%` }} />
+      <div className="w-16 h-1.5 bg-neutral-200 rounded-full overflow-hidden">
+        <div className={`h-full rounded-full ${color}`} style={{ width: `${pct}%` }} />
       </div>
       <span className="text-xs font-medium text-neutral-600">{pct}%</span>
     </div>

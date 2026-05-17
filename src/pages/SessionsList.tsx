@@ -5,11 +5,44 @@ import {
   Clock,
   Users,
   Search,
+  MapPin,
+  Forklift,
+  ShieldAlert,
+  Flame,
+  HeartPulse,
+  Lock,
+  Wrench,
 } from 'lucide-react';
 import { Header } from '../components/layout/Header';
 import { Card, Badge, Button } from '../components/ui';
-import { sessions, enrollments } from '../data/mock';
+import { sessions, enrollments, type TrainingType } from '../data/mock';
 import { useState } from 'react';
+
+const trainingIcons: Record<TrainingType, React.ReactNode> = {
+  'OSHA 10': <GraduationCap size={22} />,
+  'OSHA 30': <GraduationCap size={22} />,
+  'Fall Protection': <ShieldAlert size={22} />,
+  'Confined Space': <Lock size={22} />,
+  'Forklift': <Forklift size={22} />,
+  'First Aid/CPR': <HeartPulse size={22} />,
+  'Hot Work': <Flame size={22} />,
+  'Lockout/Tagout': <Lock size={22} />,
+  'Scaffolding': <Wrench size={22} />,
+  'Other': <GraduationCap size={22} />,
+};
+
+const trainingIconColors: Record<TrainingType, string> = {
+  'OSHA 10': 'bg-blue-100 text-blue-600',
+  'OSHA 30': 'bg-purple-100 text-purple-600',
+  'Fall Protection': 'bg-yellow-100 text-yellow-700',
+  'Confined Space': 'bg-neutral-100 text-neutral-600',
+  'Forklift': 'bg-brand-50 text-brand-600',
+  'First Aid/CPR': 'bg-red-100 text-red-600',
+  'Hot Work': 'bg-red-100 text-red-600',
+  'Lockout/Tagout': 'bg-neutral-100 text-neutral-700',
+  'Scaffolding': 'bg-green-100 text-green-600',
+  'Other': 'bg-neutral-100 text-neutral-500',
+};
 
 export function SessionsList() {
   const [search, setSearch] = useState('');
@@ -40,15 +73,15 @@ export function SessionsList() {
                 placeholder="Search sessions..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="pl-9 pr-4 py-2 text-sm border border-neutral-300 bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600 w-[280px]"
+                className="pl-9 pr-4 py-2 text-sm border border-neutral-300 rounded-[--radius-md] bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600 w-[280px]"
               />
             </div>
-            <div className="flex bg-neutral-100 p-0.5">
+            <div className="flex bg-neutral-100 p-0.5 rounded-[--radius-md]">
               {(['all', 'Open', 'Closed'] as const).map(status => (
                 <button
                   key={status}
                   onClick={() => setStatusFilter(status)}
-                  className={`px-3 py-1.5 text-sm font-medium transition-colors cursor-pointer ${
+                  className={`px-3 py-1.5 text-sm font-medium rounded-[--radius-sm] transition-colors cursor-pointer ${
                     statusFilter === status
                       ? 'bg-neutral-0 text-neutral-950 shadow-sm'
                       : 'text-neutral-500 hover:text-neutral-700'
@@ -76,10 +109,8 @@ export function SessionsList() {
                 <Card className="hover:shadow-md transition-shadow">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                      <div className={`w-12 h-12 flex items-center justify-center ${
-                        session.status === 'Open' ? 'bg-green-100 text-green-600' : 'bg-neutral-100 text-neutral-500'
-                      }`}>
-                        <GraduationCap size={24} />
+                      <div className={`w-12 h-12 rounded-[--radius-md] flex items-center justify-center ${trainingIconColors[session.type]}`}>
+                        {trainingIcons[session.type]}
                       </div>
                       <div>
                         <p className="text-base font-medium text-neutral-950">{session.name}</p>
@@ -93,7 +124,10 @@ export function SessionsList() {
                             </span>
                           </div>
                           <span className="text-neutral-300">|</span>
-                          <span className="text-sm text-neutral-500">{session.location}</span>
+                          <div className="flex items-center gap-1.5 text-neutral-500">
+                            <MapPin size={14} />
+                            <span className="text-sm">{session.location}</span>
+                          </div>
                         </div>
                       </div>
                     </div>

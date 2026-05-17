@@ -1,18 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  /* === Brand (Orange) === */
+  /* === Brand / Cone (Orange) — exact from brand guidelines === */
   --color-brand-50: #fff5f1;
-  --color-brand-100: #ffeee6;
-  --color-brand-200: #ffe3d6;
-  --color-brand-300: #ffd5c1;
-  --color-brand-400: #ffc0a2;
+  --color-brand-100: #ffe9d7;
+  --color-brand-200: #ffd9b9;
+  --color-brand-300: #ffb273;
+  --color-brand-400: #fb9543;
   --color-brand-500: #ff8e59;
-  --color-brand-600: #ff7130;
-  --color-brand-700: #ff4000;
-  --color-brand-800: #e53a00;
+  --color-brand-600: #ff7230;
+  --color-brand-700: #e56528;
+  --color-brand-800: #c45520;
   --color-brand-900: #a1220b;
   --color-brand-950: #661a00;
+
+  /* === Named Brand Colors (from brand guidelines) === */
+  --color-forest: #1b2b1d;
+  --color-cone: #ff7230;
+  --color-khaki: #4e6129;
+  --color-tarpaulin: #c9d09a;
+  --color-clay: #ffb273;
+  --color-hi-vis: #f4f55b;
+  --color-clay-80: #fb9543;
+  --color-clay-40: #ffd9b9;
+  --color-clay-20: #ffe9d7;
+  --color-khaki-80: #979e75;
+  --color-khaki-40: #e6e9d1;
+  --color-khaki-20: #eff0eb;
 
   /* === Neutral (Green-tinted grays) === */
   --color-neutral-0: #ffffff;
@@ -100,8 +114,8 @@
   /* === Semantic: Backgrounds === */
   --color-bg-page: var(--color-neutral-50);
   --color-bg-card: var(--color-neutral-0);
-  --color-bg-sidebar: var(--color-neutral-950);
-  --color-bg-brand: var(--color-brand-600);
+  --color-bg-sidebar: var(--color-forest);
+  --color-bg-brand: var(--color-cone);
   --color-bg-brand-hover: var(--color-brand-700);
   --color-bg-success: var(--color-green-100);
   --color-bg-warning: var(--color-yellow-100);
@@ -150,14 +164,17 @@
   /* === Font === */
   --font-sans: 'Geist', system-ui, sans-serif;
 
-  /* === Radii (all 0 per design system) === */
+  /* === Radii (from Figma NextGen Design System) === */
   --radius-none: 0px;
-  --radius-full: 10000px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
 }
 
 * {
   box-sizing: border-box;
-  border-radius: 0;
 }
 
 body {
