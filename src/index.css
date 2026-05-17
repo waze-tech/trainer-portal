@@ -1,26 +1,163 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #2D4A2D;
-  --color-primary-dark: #1a2e1a;
-  --color-primary-light: #3d6b3d;
-  --color-accent: #E8722A;
-  --color-accent-dark: #c45a1d;
-  --color-neutral-50: #f8f9fa;
-  --color-neutral-100: #f1f3f5;
-  --color-neutral-200: #e9ecef;
-  --color-neutral-300: #dee2e6;
-  --color-neutral-400: #ced4da;
-  --color-neutral-500: #adb5bd;
-  --color-neutral-600: #6c757d;
-  --color-neutral-700: #495057;
-  --color-neutral-800: #343a40;
-  --color-neutral-900: #212529;
+  /* === Brand (Orange) === */
+  --color-brand-50: #fff5f1;
+  --color-brand-100: #ffeee6;
+  --color-brand-200: #ffe3d6;
+  --color-brand-300: #ffd5c1;
+  --color-brand-400: #ffc0a2;
+  --color-brand-500: #ff8e59;
+  --color-brand-600: #ff7130;
+  --color-brand-700: #ff4000;
+  --color-brand-800: #e53a00;
+  --color-brand-900: #a1220b;
+  --color-brand-950: #661a00;
+
+  /* === Neutral (Green-tinted grays) === */
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #fafbfa;
+  --color-neutral-100: #f6f6f6;
+  --color-neutral-200: #eff0ef;
+  --color-neutral-300: #e4e6e4;
+  --color-neutral-400: #d1d5d2;
+  --color-neutral-500: #98a099;
+  --color-neutral-600: #768077;
+  --color-neutral-700: #5f6b61;
+  --color-neutral-800: #49554a;
+  --color-neutral-900: #324034;
+  --color-neutral-950: #1b2b1d;
+  --color-neutral-1000: #071709;
+
+  /* === Blue === */
+  --color-blue-50: #eef9ff;
+  --color-blue-100: #d8f0ff;
+  --color-blue-200: #b9e5ff;
+  --color-blue-300: #8ad6ff;
+  --color-blue-400: #52bfff;
+  --color-blue-500: #2a9fff;
+  --color-blue-600: #1380fd;
+  --color-blue-700: #0c66e4;
+  --color-blue-800: #1153bc;
+  --color-blue-900: #144994;
+  --color-blue-950: #122d59;
+
+  /* === Green === */
+  --color-green-50: #effaf4;
+  --color-green-100: #d8f3e2;
+  --color-green-200: #b4e6ca;
+  --color-green-300: #82d3aa;
+  --color-green-400: #4fb887;
+  --color-green-500: #2d9c6b;
+  --color-green-600: #1f845a;
+  --color-green-700: #186447;
+  --color-green-800: #155039;
+  --color-green-900: #124230;
+  --color-green-950: #09251b;
+
+  /* === Red === */
+  --color-red-50: #fef3f2;
+  --color-red-100: #fee5e2;
+  --color-red-200: #fdd1cb;
+  --color-red-300: #fbb0a6;
+  --color-red-400: #f87462;
+  --color-red-500: #ef5c48;
+  --color-red-600: #e34935;
+  --color-red-700: #ca3521;
+  --color-red-800: #ae2a19;
+  --color-red-900: #7e291e;
+  --color-red-950: #44120b;
+
+  /* === Yellow === */
+  --color-yellow-50: #fffbeb;
+  --color-yellow-100: #fff7d6;
+  --color-yellow-200: #ffe888;
+  --color-yellow-300: #ffd64a;
+  --color-yellow-400: #ffc220;
+  --color-yellow-500: #f9a007;
+  --color-yellow-600: #dd7802;
+  --color-yellow-700: #b75406;
+  --color-yellow-800: #94400c;
+  --color-yellow-900: #7a350d;
+  --color-yellow-950: #461a02;
+
+  /* === Purple === */
+  --color-purple-50: #f4f2ff;
+  --color-purple-100: #ebe7ff;
+  --color-purple-200: #d8d2ff;
+  --color-purple-300: #bdaeff;
+  --color-purple-400: #9c80ff;
+  --color-purple-500: #7e4dff;
+  --color-purple-600: #7c3bff;
+  --color-purple-700: #6116eb;
+  --color-purple-800: #5112c5;
+  --color-purple-900: #4411a1;
+  --color-purple-950: #27076e;
+
+  /* === Tarpaulin (Dark green accent) === */
+  --color-tarpaulin-50: #f1f3e6;
+
+  /* === Semantic: Backgrounds === */
+  --color-bg-page: var(--color-neutral-50);
+  --color-bg-card: var(--color-neutral-0);
+  --color-bg-sidebar: var(--color-neutral-950);
+  --color-bg-brand: var(--color-brand-600);
+  --color-bg-brand-hover: var(--color-brand-700);
+  --color-bg-success: var(--color-green-100);
+  --color-bg-warning: var(--color-yellow-100);
+  --color-bg-danger: var(--color-red-100);
+  --color-bg-info: var(--color-blue-100);
+
+  /* === Semantic: Text === */
+  --color-text-primary: var(--color-neutral-950);
+  --color-text-secondary: var(--color-neutral-700);
+  --color-text-muted: var(--color-neutral-500);
+  --color-text-inverse: var(--color-neutral-0);
+  --color-text-brand: var(--color-brand-600);
+  --color-text-success: var(--color-green-700);
+  --color-text-warning: var(--color-yellow-700);
+  --color-text-danger: var(--color-red-700);
+
+  /* === Semantic: Borders === */
+  --color-border: var(--color-neutral-300);
+  --color-border-hover: var(--color-neutral-400);
+  --color-border-focus: var(--color-brand-600);
+
+  /* === Spacing Scale === */
+  --spacing-0: 0px;
+  --spacing-025: 2px;
+  --spacing-050: 4px;
+  --spacing-075: 6px;
+  --spacing-100: 8px;
+  --spacing-125: 10px;
+  --spacing-150: 12px;
+  --spacing-175: 14px;
+  --spacing-200: 16px;
+  --spacing-250: 20px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-450: 36px;
+  --spacing-500: 40px;
+  --spacing-600: 48px;
+  --spacing-700: 56px;
+  --spacing-800: 64px;
+  --spacing-1000: 80px;
+
+  /* === Elevation === */
+  --shadow-raised: 0px 1px 2px 0px rgba(17, 23, 41, 0.05);
+  --shadow-overlay: 0px 0px 1px 0px rgba(17, 23, 41, 0.07), 0px 1px 4px 0px rgba(17, 23, 41, 0.04), 0px 2px 24px 0px rgba(17, 23, 41, 0.04);
+
+  /* === Font === */
   --font-sans: 'Geist', system-ui, sans-serif;
+
+  /* === Radii (all 0 per design system) === */
+  --radius-none: 0px;
+  --radius-full: 10000px;
 }
 
 * {
   box-sizing: border-box;
+  border-radius: 0;
 }
 
 body {
@@ -28,8 +165,8 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--color-neutral-50);
-  color: var(--color-neutral-900);
+  background: var(--color-bg-page);
+  color: var(--color-text-primary);
 }
 
 #root {

@@ -41,7 +41,7 @@ function QRPlaceholder({ size = 120 }: { size?: number }) {
           y={Math.floor(i / cells) * cellSize}
           width={cellSize}
           height={cellSize}
-          fill={v ? '#1a2e1a' : 'white'}
+          fill={v ? '#1b2b1d' : 'white'}
         />
       ))}
     </svg>
@@ -51,14 +51,14 @@ function QRPlaceholder({ size = 120 }: { size?: number }) {
 function ConfidenceBar({ score }: { score: number | null }) {
   if (score === null) return <span className="text-xs text-neutral-400">N/A</span>;
   const pct = Math.round(score * 100);
-  let color = 'bg-emerald-500';
-  if (pct < 50) color = 'bg-red-500';
-  else if (pct < 75) color = 'bg-amber-500';
+  let color = 'bg-green-600';
+  if (pct < 50) color = 'bg-red-600';
+  else if (pct < 75) color = 'bg-yellow-600';
 
   return (
     <div className="flex items-center gap-2">
-      <div className="w-16 h-1.5 bg-neutral-200 rounded-full overflow-hidden">
-        <div className={`h-full rounded-full ${color}`} style={{ width: `${pct}%` }} />
+      <div className="w-16 h-1.5 bg-neutral-200-full overflow-hidden">
+        <div className={`h-full-full ${color}`} style={{ width: `${pct}%` }} />
       </div>
       <span className="text-xs font-medium text-neutral-600">{pct}%</span>
     </div>
@@ -81,7 +81,7 @@ export function SessionDetail() {
         <main className="p-8">
           <Card className="text-center py-12">
             <p className="text-neutral-500">Session not found.</p>
-            <Link to="/sessions" className="text-primary text-sm mt-2 inline-block">Back to sessions</Link>
+            <Link to="/sessions" className="text-brand-600 text-sm mt-2 inline-block">Back to sessions</Link>
           </Card>
         </main>
       </div>
@@ -144,7 +144,7 @@ export function SessionDetail() {
                   </Badge>
                   <Badge variant="info">{session.type}</Badge>
                 </div>
-                <h2 className="text-xl font-semibold text-neutral-900 mb-1">{session.name}</h2>
+                <h2 className="text-xl font-semibold text-neutral-950 mb-1">{session.name}</h2>
                 <div className="flex items-center gap-4 text-sm text-neutral-500 mt-2">
                   <div className="flex items-center gap-1.5">
                     <Clock size={14} />
@@ -190,8 +190,8 @@ export function SessionDetail() {
 
         {/* Bulk Actions */}
         {selectedRows.size > 0 && (
-          <div className="flex items-center gap-3 mb-4 p-3 bg-primary/5 border border-primary/20 rounded-lg">
-            <span className="text-sm font-medium text-primary">{selectedRows.size} selected</span>
+          <div className="flex items-center gap-3 mb-4 p-3 bg-brand-50 border border-brand-200">
+            <span className="text-sm font-medium text-brand-600">{selectedRows.size} selected</span>
             <Button size="sm" variant="primary" icon={<Check size={14} />} onClick={() => bulkAction('Approved')}>
               Approve
             </Button>
@@ -206,8 +206,8 @@ export function SessionDetail() {
 
         {/* Enrollment Table */}
         <Card padding="none">
-          <div className="px-6 py-4 border-b border-neutral-200 flex items-center justify-between">
-            <h3 className="font-semibold text-neutral-900">Enrollment Roster</h3>
+          <div className="px-6 py-4 border-b border-neutral-300 flex items-center justify-between">
+            <h3 className="font-semibold text-neutral-950">Enrollment Roster</h3>
             <div className="flex items-center gap-2">
               <Link to={`/enroll/${session.id}`} target="_blank">
                 <Button variant="outline" size="sm" icon={<QrCode size={14} />}>
@@ -219,13 +219,13 @@ export function SessionDetail() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="bg-neutral-50 border-b border-neutral-200">
+                <tr className="bg-neutral-50 border-b border-neutral-300">
                   <th className="px-6 py-3 text-left">
                     <input
                       type="checkbox"
                       checked={selectedRows.size === enrollmentData.length && enrollmentData.length > 0}
                       onChange={toggleAll}
-                      className="rounded border-neutral-300 accent-primary cursor-pointer"
+                      className="border-neutral-300 accent-brand-600 cursor-pointer"
                     />
                   </th>
                   <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-500 uppercase tracking-wider">Worker</th>
@@ -238,17 +238,17 @@ export function SessionDetail() {
               </thead>
               <tbody className="divide-y divide-neutral-100">
                 {enrollmentData.map(enrollment => (
-                  <tr key={enrollment.id} className={`hover:bg-neutral-50 transition-colors ${selectedRows.has(enrollment.id) ? 'bg-primary/5' : ''}`}>
+                  <tr key={enrollment.id} className={`hover:bg-neutral-50 transition-colors ${selectedRows.has(enrollment.id) ? 'bg-brand-50' : ''}`}>
                     <td className="px-6 py-3">
                       <input
                         type="checkbox"
                         checked={selectedRows.has(enrollment.id)}
                         onChange={() => toggleRow(enrollment.id)}
-                        className="rounded border-neutral-300 accent-primary cursor-pointer"
+                        className="border-neutral-300 accent-brand-600 cursor-pointer"
                       />
                     </td>
                     <td className="px-4 py-3">
-                      <span className="text-sm font-medium text-neutral-900">
+                      <span className="text-sm font-medium text-neutral-950">
                         {enrollment.firstName} {enrollment.lastName}
                       </span>
                     </td>
@@ -277,7 +277,7 @@ export function SessionDetail() {
                         {enrollment.status !== 'Approved' && (
                           <button
                             onClick={() => updateStatus(enrollment.id, 'Approved')}
-                            className="p-1.5 rounded-lg text-emerald-500 hover:bg-emerald-50 transition-colors cursor-pointer"
+                            className="p-1.5 text-green-600 hover:bg-green-50 transition-colors cursor-pointer"
                             title="Approve"
                           >
                             <CheckCircle2 size={18} />
@@ -286,7 +286,7 @@ export function SessionDetail() {
                         {enrollment.status !== 'Rejected' && (
                           <button
                             onClick={() => updateStatus(enrollment.id, 'Rejected')}
-                            className="p-1.5 rounded-lg text-red-400 hover:bg-red-50 transition-colors cursor-pointer"
+                            className="p-1.5 text-red-400 hover:bg-red-50 transition-colors cursor-pointer"
                             title="Reject"
                           >
                             <XCircle size={18} />
@@ -303,23 +303,23 @@ export function SessionDetail() {
 
         {/* Documents Section */}
         <Card className="mt-6">
-          <h3 className="font-semibold text-neutral-900 mb-4">Attached Documents</h3>
+          <h3 className="font-semibold text-neutral-950 mb-4">Attached Documents</h3>
           {session.status === 'Closed' ? (
             <div className="space-y-2">
               {['Training Materials.pdf', 'Attendance Sheet.pdf', 'Assessment Results.xlsx'].map(doc => (
-                <div key={doc} className="flex items-center justify-between p-3 bg-neutral-50 rounded-lg">
+                <div key={doc} className="flex items-center justify-between p-3 bg-neutral-50">
                   <div className="flex items-center gap-3">
                     <FileText size={18} className="text-neutral-400" />
                     <span className="text-sm text-neutral-700">{doc}</span>
                   </div>
-                  <button className="p-1.5 rounded-lg text-neutral-400 hover:text-primary hover:bg-primary/10 transition-colors cursor-pointer">
+                  <button className="p-1.5 text-neutral-400 hover:text-brand-600 hover:bg-brand-50 transition-colors cursor-pointer">
                     <Download size={16} />
                   </button>
                 </div>
               ))}
             </div>
           ) : (
-            <div className="border-2 border-dashed border-neutral-300 rounded-lg p-6 text-center">
+            <div className="border-2 border-dashed border-neutral-300 p-6 text-center">
               <FileText size={24} className="mx-auto text-neutral-400 mb-2" />
               <p className="text-sm text-neutral-500">No documents attached yet</p>
               <p className="text-xs text-neutral-400 mt-1">Documents will appear here once uploaded</p>

@@ -88,7 +88,7 @@ export function Compliance() {
     >
       <div className="flex items-center gap-1">
         {label}
-        <ArrowUpDown size={12} className={sortKey === sortKeyVal ? 'text-primary' : 'text-neutral-300'} />
+        <ArrowUpDown size={12} className={sortKey === sortKeyVal ? 'text-brand-600' : 'text-neutral-300'} />
       </div>
     </th>
   );
@@ -105,33 +105,33 @@ export function Compliance() {
         <div className="grid grid-cols-3 gap-4 mb-6">
           <Card>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center">
-                <div className="w-3 h-3 rounded-full bg-emerald-500" />
+              <div className="w-10 h-10 bg-green-100 flex items-center justify-center">
+                <div className="w-3 h-3-full bg-green-600" />
               </div>
               <div>
-                <p className="text-2xl font-semibold text-neutral-900">{valid}</p>
+                <p className="text-2xl font-semibold text-neutral-950">{valid}</p>
                 <p className="text-sm text-neutral-500">Valid certifications</p>
               </div>
             </div>
           </Card>
           <Card>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-amber-50 flex items-center justify-center">
-                <div className="w-3 h-3 rounded-full bg-amber-500" />
+              <div className="w-10 h-10 bg-yellow-100 flex items-center justify-center">
+                <div className="w-3 h-3-full bg-yellow-600" />
               </div>
               <div>
-                <p className="text-2xl font-semibold text-neutral-900">{expiringSoon}</p>
+                <p className="text-2xl font-semibold text-neutral-950">{expiringSoon}</p>
                 <p className="text-sm text-neutral-500">Expiring soon</p>
               </div>
             </div>
           </Card>
           <Card>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-red-50 flex items-center justify-center">
-                <div className="w-3 h-3 rounded-full bg-red-500" />
+              <div className="w-10 h-10 bg-red-100 flex items-center justify-center">
+                <div className="w-3 h-3-full bg-red-600" />
               </div>
               <div>
-                <p className="text-2xl font-semibold text-neutral-900">{expired}</p>
+                <p className="text-2xl font-semibold text-neutral-950">{expired}</p>
                 <p className="text-sm text-neutral-500">Expired</p>
               </div>
             </div>
@@ -148,13 +148,13 @@ export function Compliance() {
                 placeholder="Search workers or employers..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="w-full pl-9 pr-4 py-2 text-sm border border-neutral-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                className="w-full pl-9 pr-4 py-2 text-sm border border-neutral-300 bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600"
               />
             </div>
             <select
               value={typeFilter}
               onChange={e => setTypeFilter(e.target.value as TrainingType | 'all')}
-              className="px-3 py-2 text-sm border border-neutral-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary/20"
+              className="px-3 py-2 text-sm border border-neutral-300 bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20"
             >
               <option value="all">All Types</option>
               {TRAINING_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
@@ -162,7 +162,7 @@ export function Compliance() {
             <select
               value={employerFilter}
               onChange={e => setEmployerFilter(e.target.value)}
-              className="px-3 py-2 text-sm border border-neutral-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary/20"
+              className="px-3 py-2 text-sm border border-neutral-300 bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20"
             >
               <option value="all">All Employers</option>
               {employers.map(e => <option key={e} value={e}>{e}</option>)}
@@ -170,7 +170,7 @@ export function Compliance() {
             <select
               value={statusFilter}
               onChange={e => setStatusFilter(e.target.value as CertStatus | 'all')}
-              className="px-3 py-2 text-sm border border-neutral-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary/20"
+              className="px-3 py-2 text-sm border border-neutral-300 bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20"
             >
               <option value="all">All Statuses</option>
               <option value="Valid">Valid</option>
@@ -188,7 +188,7 @@ export function Compliance() {
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="bg-neutral-50 border-b border-neutral-200">
+                <tr className="bg-neutral-50 border-b border-neutral-300">
                   <ThHeader label="Worker" sortKeyVal="name" />
                   <ThHeader label="Employer" sortKeyVal="employer" />
                   <ThHeader label="Training" sortKeyVal="type" />
@@ -204,7 +204,7 @@ export function Compliance() {
                   return (
                     <tr key={`${row.workerId}-${row.sessionId}-${i}`} className="hover:bg-neutral-50 transition-colors">
                       <td className="px-4 py-3">
-                        <span className="text-sm font-medium text-neutral-900">
+                        <span className="text-sm font-medium text-neutral-950">
                           {row.firstName} {row.lastName}
                         </span>
                       </td>
@@ -226,9 +226,9 @@ export function Compliance() {
                       <td className="px-4 py-3 text-center">
                         <button
                           onClick={() => toggleNotification(row.workerId, row.sessionId)}
-                          className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
+                          className={`p-1.5 transition-colors cursor-pointer ${
                             notifications[notifKey]
-                              ? 'text-primary hover:bg-primary/10'
+                              ? 'text-brand-600 hover:bg-brand-50'
                               : 'text-neutral-300 hover:bg-neutral-100 hover:text-neutral-500'
                           }`}
                           title={notifications[notifKey] ? 'Notification enabled' : 'Notification disabled'}
@@ -249,7 +249,7 @@ export function Compliance() {
               <p className="text-sm text-neutral-400 mt-1">Try adjusting your search or filter criteria</p>
             </div>
           )}
-          <div className="px-6 py-3 border-t border-neutral-200 bg-neutral-50 text-sm text-neutral-500">
+          <div className="px-6 py-3 border-t border-neutral-300 bg-neutral-50 text-sm text-neutral-500">
             Showing {sorted.length} of {allData.length} records
           </div>
         </Card>

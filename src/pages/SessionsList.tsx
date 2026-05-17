@@ -40,17 +40,17 @@ export function SessionsList() {
                 placeholder="Search sessions..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}
-                className="pl-9 pr-4 py-2 text-sm border border-neutral-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary w-[280px]"
+                className="pl-9 pr-4 py-2 text-sm border border-neutral-300 bg-neutral-0 focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600 w-[280px]"
               />
             </div>
-            <div className="flex bg-neutral-100 rounded-lg p-0.5">
+            <div className="flex bg-neutral-100 p-0.5">
               {(['all', 'Open', 'Closed'] as const).map(status => (
                 <button
                   key={status}
                   onClick={() => setStatusFilter(status)}
-                  className={`px-3 py-1.5 text-sm font-medium rounded-md transition-colors cursor-pointer ${
+                  className={`px-3 py-1.5 text-sm font-medium transition-colors cursor-pointer ${
                     statusFilter === status
-                      ? 'bg-white text-neutral-900 shadow-sm'
+                      ? 'bg-neutral-0 text-neutral-950 shadow-sm'
                       : 'text-neutral-500 hover:text-neutral-700'
                   }`}
                 >
@@ -76,13 +76,13 @@ export function SessionsList() {
                 <Card className="hover:shadow-md transition-shadow">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                        session.status === 'Open' ? 'bg-emerald-50 text-emerald-600' : 'bg-neutral-100 text-neutral-500'
+                      <div className={`w-12 h-12 flex items-center justify-center ${
+                        session.status === 'Open' ? 'bg-green-100 text-green-600' : 'bg-neutral-100 text-neutral-500'
                       }`}>
                         <GraduationCap size={24} />
                       </div>
                       <div>
-                        <p className="text-base font-medium text-neutral-900">{session.name}</p>
+                        <p className="text-base font-medium text-neutral-950">{session.name}</p>
                         <div className="flex items-center gap-3 mt-1">
                           <div className="flex items-center gap-1.5 text-neutral-500">
                             <Clock size={14} />

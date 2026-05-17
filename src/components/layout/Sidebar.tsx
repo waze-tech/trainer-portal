@@ -17,14 +17,14 @@ export function Sidebar() {
   const isSessionsSection = location.pathname.startsWith('/sessions');
 
   const navLinkClass = (isActive: boolean) =>
-    `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors duration-150 ${
+    `flex items-center gap-3 px-3 py-2.5 text-sm font-medium transition-colors duration-150 ${
       isActive
         ? 'bg-white/15 text-white'
         : 'text-white/70 hover:bg-white/10 hover:text-white'
     }`;
 
   const subLinkClass = (isActive: boolean) =>
-    `flex items-center gap-3 pl-10 pr-3 py-2 rounded-lg text-sm transition-colors duration-150 ${
+    `flex items-center gap-3 pl-10 pr-3 py-2 text-sm transition-colors duration-150 ${
       isActive
         ? 'bg-white/15 text-white'
         : 'text-white/60 hover:bg-white/10 hover:text-white'
@@ -34,14 +34,14 @@ export function Sidebar() {
     <aside
       className={`
         fixed left-0 top-0 bottom-0 z-40
-        bg-primary-dark flex flex-col
+        bg-neutral-950 flex flex-col
         transition-all duration-200
         ${collapsed ? 'w-[68px]' : 'w-[260px]'}
       `}
     >
       {/* Logo */}
       <div className="flex items-center gap-3 px-5 h-16 border-b border-white/10">
-        <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-white font-bold text-lg shrink-0">
+        <div className="w-8 h-8 bg-brand-600 flex items-center justify-center text-white font-bold text-lg shrink-0">
           B
         </div>
         {!collapsed && (
@@ -94,7 +94,7 @@ export function Sidebar() {
       <div className="px-3 py-3 border-t border-white/10">
         <button
           onClick={() => setCollapsed(!collapsed)}
-          className="flex items-center justify-center w-full py-2 rounded-lg text-white/60 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
+          className="flex items-center justify-center w-full py-2 text-white/60 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
         >
           {collapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
           {!collapsed && <span className="ml-2 text-sm">Collapse</span>}

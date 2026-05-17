@@ -82,17 +82,17 @@ export function CreateSession() {
         <Header title="Create Session" />
         <main className="p-8 flex items-center justify-center min-h-[calc(100vh-64px)]">
           <Card className="text-center max-w-md w-full py-12">
-            <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Sparkles size={32} className="text-emerald-600" />
+            <div className="w-16 h-16 bg-green-100-full flex items-center justify-center mx-auto mb-4">
+              <Sparkles size={32} className="text-green-600" />
             </div>
-            <h2 className="text-xl font-semibold text-neutral-900 mb-2">Session Created!</h2>
+            <h2 className="text-xl font-semibold text-neutral-950 mb-2">Session Created!</h2>
             <p className="text-neutral-500 mb-6">Your QR code is being generated. Redirecting to session details...</p>
-            <div className="w-48 h-48 bg-neutral-100 rounded-xl mx-auto flex items-center justify-center border-2 border-dashed border-neutral-300">
+            <div className="w-48 h-48 bg-neutral-100 mx-auto flex items-center justify-center border-2 border-dashed border-neutral-300">
               <div className="grid grid-cols-5 gap-1 p-4">
                 {Array.from({ length: 25 }).map((_, i) => (
                   <div
                     key={i}
-                    className={`w-4 h-4 rounded-sm ${Math.random() > 0.4 ? 'bg-neutral-800' : 'bg-white'}`}
+                    className={`w-4 h-4 ${Math.random() > 0.4 ? 'bg-neutral-800' : 'bg-white'}`}
                   />
                 ))}
               </div>
@@ -114,7 +114,7 @@ export function CreateSession() {
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Basic Info */}
           <Card>
-            <h3 className="text-base font-semibold text-neutral-900 mb-4">Session Details</h3>
+            <h3 className="text-base font-semibold text-neutral-950 mb-4">Session Details</h3>
             <div className="grid grid-cols-2 gap-4">
               <Select
                 label="Training Type"
@@ -161,7 +161,7 @@ export function CreateSession() {
           <Card>
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h3 className="text-base font-semibold text-neutral-900">Enrollment Questions</h3>
+                <h3 className="text-base font-semibold text-neutral-950">Enrollment Questions</h3>
                 <p className="text-sm text-neutral-500 mt-0.5">Optional questions workers answer during enrollment</p>
               </div>
               <Button type="button" variant="outline" size="sm" icon={<Plus size={16} />} onClick={addQuestion}>
@@ -169,13 +169,13 @@ export function CreateSession() {
               </Button>
             </div>
             {questions.length === 0 ? (
-              <div className="text-center py-8 bg-neutral-50 rounded-lg border border-dashed border-neutral-300">
+              <div className="text-center py-8 bg-neutral-50 border border-dashed border-neutral-300">
                 <p className="text-sm text-neutral-400">No custom questions yet. Click "Add Question" to add one.</p>
               </div>
             ) : (
               <div className="space-y-4">
                 {questions.map((q, i) => (
-                  <div key={q.id} className="flex items-start gap-3 p-4 bg-neutral-50 rounded-lg">
+                  <div key={q.id} className="flex items-start gap-3 p-4 bg-neutral-50">
                     <span className="text-sm font-medium text-neutral-400 mt-2 shrink-0 w-6">
                       {i + 1}.
                     </span>
@@ -189,7 +189,7 @@ export function CreateSession() {
                         <select
                           value={q.type}
                           onChange={e => updateQuestion(q.id, 'type', e.target.value)}
-                          className="px-3 py-1.5 text-sm border border-neutral-300 rounded-lg bg-white"
+                          className="px-3 py-1.5 text-sm border border-neutral-300 bg-neutral-0"
                         >
                           <option value="text">Text</option>
                           <option value="select">Dropdown</option>
@@ -200,7 +200,7 @@ export function CreateSession() {
                             type="checkbox"
                             checked={q.required}
                             onChange={e => updateQuestion(q.id, 'required', e.target.checked)}
-                            className="rounded border-neutral-300 accent-primary"
+                            className="border-neutral-300 accent-brand-600"
                           />
                           Required
                         </label>
@@ -209,7 +209,7 @@ export function CreateSession() {
                     <button
                       type="button"
                       onClick={() => removeQuestion(q.id)}
-                      className="p-1.5 rounded-lg text-neutral-400 hover:text-red-500 hover:bg-red-50 transition-colors mt-1 cursor-pointer"
+                      className="p-1.5 text-neutral-400 hover:text-red-500 hover:bg-red-50 transition-colors mt-1 cursor-pointer"
                     >
                       <Trash2 size={16} />
                     </button>
@@ -221,8 +221,8 @@ export function CreateSession() {
 
           {/* Documents */}
           <Card>
-            <h3 className="text-base font-semibold text-neutral-900 mb-4">Documents</h3>
-            <div className="border-2 border-dashed border-neutral-300 rounded-lg p-8 text-center hover:border-primary/50 hover:bg-primary/5 transition-colors cursor-pointer">
+            <h3 className="text-base font-semibold text-neutral-950 mb-4">Documents</h3>
+            <div className="border-2 border-dashed border-neutral-300 p-8 text-center hover:border-brand-400 hover:bg-brand-50 transition-colors cursor-pointer">
               <Upload size={32} className="mx-auto text-neutral-400 mb-3" />
               <p className="text-sm font-medium text-neutral-600">Drop files here or click to upload</p>
               <p className="text-xs text-neutral-400 mt-1">PDF, DOC, DOCX, images up to 10MB each</p>
@@ -232,8 +232,8 @@ export function CreateSession() {
           {/* AI Quality Standard */}
           <Card>
             <div className="flex items-center gap-2 mb-4">
-              <Sparkles size={20} className="text-accent" />
-              <h3 className="text-base font-semibold text-neutral-900">AI Quality Standard</h3>
+              <Sparkles size={20} className="text-brand-600" />
+              <h3 className="text-base font-semibold text-neutral-950">AI Quality Standard</h3>
             </div>
             <p className="text-sm text-neutral-500 mb-3">
               Define criteria for AI-assisted enrollment review. The AI will score each enrollment against these standards.

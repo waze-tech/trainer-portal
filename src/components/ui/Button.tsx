@@ -11,9 +11,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantClasses: Record<Variant, string> = {
-  primary: 'bg-primary text-white hover:bg-primary-dark shadow-sm',
+  primary: 'bg-brand-600 text-white hover:bg-brand-700 shadow-sm',
   secondary: 'bg-neutral-200 text-neutral-800 hover:bg-neutral-300',
-  outline: 'border border-neutral-400 text-neutral-700 hover:bg-neutral-100 bg-white',
+  outline: 'border border-neutral-400 text-neutral-700 hover:bg-neutral-100 bg-neutral-0',
   danger: 'bg-red-600 text-white hover:bg-red-700 shadow-sm',
   ghost: 'text-neutral-600 hover:bg-neutral-100 hover:text-neutral-800',
 };
@@ -36,7 +36,7 @@ export function Button({
   return (
     <button
       className={`
-        inline-flex items-center justify-center font-medium rounded-lg
+        inline-flex items-center justify-center font-medium
         transition-colors duration-150 cursor-pointer
         disabled:opacity-50 disabled:cursor-not-allowed
         ${variantClasses[variant]}

@@ -16,8 +16,8 @@ export function Card({ children, padding = 'md', className = '', ...props }: Car
   return (
     <div
       className={`
-        bg-white rounded-xl border border-neutral-200
-        shadow-[0_1px_3px_rgba(0,0,0,0.1),0_4px_6px_rgba(0,0,0,0.07)]
+        bg-neutral-0 border border-neutral-300/20
+        shadow-[0_1px_3px_rgba(27,43,29,0.07),0_4px_6px_rgba(27,43,29,0.04)]
         ${paddingClasses[padding]}
         ${className}
       `}

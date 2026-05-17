@@ -12,8 +12,8 @@ export function Settings() {
           {/* Profile */}
           <Card>
             <div className="flex items-center gap-3 mb-6">
-              <User size={20} className="text-primary" />
-              <h3 className="text-base font-semibold text-neutral-900">Profile</h3>
+              <User size={20} className="text-brand-600" />
+              <h3 className="text-base font-semibold text-neutral-950">Profile</h3>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <Input label="Full Name" defaultValue={trainerInfo.name} />
@@ -35,8 +35,8 @@ export function Settings() {
           {/* Notifications */}
           <Card>
             <div className="flex items-center gap-3 mb-6">
-              <Bell size={20} className="text-primary" />
-              <h3 className="text-base font-semibold text-neutral-900">Notifications</h3>
+              <Bell size={20} className="text-brand-600" />
+              <h3 className="text-base font-semibold text-neutral-950">Notifications</h3>
             </div>
             <div className="space-y-4">
               {[
@@ -52,7 +52,7 @@ export function Settings() {
                   </div>
                   <label className="relative inline-flex items-center cursor-pointer">
                     <input type="checkbox" defaultChecked={item.default} className="sr-only peer" />
-                    <div className="w-9 h-5 bg-neutral-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-primary/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary" />
+                    <div className="w-9 h-5 bg-neutral-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-brand-600/20-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-neutral-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand-600" />
                   </label>
                 </div>
               ))}
@@ -62,8 +62,8 @@ export function Settings() {
           {/* Security */}
           <Card>
             <div className="flex items-center gap-3 mb-6">
-              <Shield size={20} className="text-primary" />
-              <h3 className="text-base font-semibold text-neutral-900">Security</h3>
+              <Shield size={20} className="text-brand-600" />
+              <h3 className="text-base font-semibold text-neutral-950">Security</h3>
             </div>
             <div className="space-y-4">
               <Input label="Current Password" type="password" placeholder="Enter current password" />

@@ -23,7 +23,7 @@ function QRPlaceholderLarge() {
   }
 
   return (
-    <div className="bg-white p-8 rounded-2xl shadow-lg inline-block">
+    <div className="bg-white p-8-2xl shadow-lg inline-block">
       <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
         {pattern.map((v, i) => (
           <rect
@@ -32,7 +32,7 @@ function QRPlaceholderLarge() {
             y={Math.floor(i / cells) * cellSize}
             width={cellSize}
             height={cellSize}
-            fill={v ? '#1a2e1a' : 'white'}
+            fill={v ? '#1b2b1d' : 'white'}
             rx={1}
           />
         ))}
@@ -47,14 +47,14 @@ export function QRDisplay() {
 
   if (!session) {
     return (
-      <div className="min-h-screen bg-primary-dark flex items-center justify-center">
+      <div className="min-h-screen bg-neutral-950 flex items-center justify-center">
         <p className="text-white">Session not found.</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-primary-dark flex flex-col items-center justify-center relative">
+    <div className="min-h-screen bg-neutral-950 flex flex-col items-center justify-center relative">
       {/* Close button */}
       <Link
         to={`/sessions/${session.id}`}

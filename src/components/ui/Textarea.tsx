@@ -17,9 +17,9 @@ export function Textarea({ label, error, className = '', id, ...props }: Textare
       <textarea
         id={textareaId}
         className={`
-          w-full px-3 py-2 text-sm border border-neutral-300 rounded-lg
-          bg-white text-neutral-900 placeholder:text-neutral-400
-          focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary
+          w-full px-3 py-2 text-sm border border-neutral-300
+          bg-neutral-0 text-neutral-950 placeholder:text-neutral-400
+          focus:outline-none focus:ring-2 focus:ring-brand-600/20 focus:border-brand-600
           transition-colors duration-150 resize-y min-h-[80px]
           ${error ? 'border-red-400' : ''}
           ${className}

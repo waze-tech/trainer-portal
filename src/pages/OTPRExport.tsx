@@ -62,7 +62,7 @@ export function OTPRExport() {
           {/* Trainer Info */}
           <div className="mb-6">
             <h3 className="text-sm font-semibold text-neutral-700 uppercase tracking-wider mb-3">Section A: Trainer Information</h3>
-            <div className="grid grid-cols-2 gap-4 bg-neutral-50 rounded-lg p-4">
+            <div className="grid grid-cols-2 gap-4 bg-neutral-50 p-4">
               <div>
                 <p className="text-xs text-neutral-400">Trainer Name</p>
                 <p className="text-sm font-medium text-neutral-900">{trainerInfo.name}</p>
@@ -89,7 +89,7 @@ export function OTPRExport() {
           {/* Training Details */}
           <div className="mb-6">
             <h3 className="text-sm font-semibold text-neutral-700 uppercase tracking-wider mb-3">Section B: Training Details</h3>
-            <div className="grid grid-cols-2 gap-4 bg-neutral-50 rounded-lg p-4">
+            <div className="grid grid-cols-2 gap-4 bg-neutral-50 p-4">
               <div>
                 <p className="text-xs text-neutral-400">Course Type</p>
                 <p className="text-sm font-medium text-neutral-900">{session.type}</p>
